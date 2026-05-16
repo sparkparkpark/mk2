@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김민희 신경과 · Minhee Kim Neurology</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   Ktown Neurology — v2 Modern Clinical
+   Clean, young, hospital-grade aesthetic
+   ============================================================ */
+
+:root {
+  --bg: #FFFFFF;
+  --bg-alt: #F4F6FA;        /* subtle blue-gray panel */
+  --bg-soft: #F8FAFC;
+  --paper: #FFFFFF;
+  --ink: #0B1220;           /* near-black with cool cast */
+  --ink-soft: #2A3447;
+  --ink-mute: #6B7589;
+  --ink-faint: #98A1B3;
+  --rule: #E5E9F0;
+  --rule-soft: #EEF1F6;
+  --accent: #1B5FBF;        /* clinical blue */
+  --accent-soft: #E8F0FB;
+  --accent-deep: #134895;
+  --success: #0E9F6E;
+
+  --sans: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+          "Helvetica Neue", Arial, sans-serif;
+  --display: "Inter", "Pretendard", -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 2px rgba(11, 18, 32, 0.04), 0 1px 1px rgba(11, 18, 32, 0.02);
+  --shadow: 0 4px 16px rgba(11, 18, 32, 0.06), 0 1px 2px rgba(11, 18, 32, 0.04);
+  --shadow-lg: 0 12px 32px rgba(11, 18, 32, 0.08), 0 2px 4px rgba(11, 18, 32, 0.04);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "ss01";
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+:lang(ko), html[lang="ko"] body { word-break: keep-all; }
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+.site-header.scrolled { border-bottom-color: var(--rule); }
+.header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 14px 40px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 40px;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(27, 95, 191, 0.25);
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-ko {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.brand-en {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--ink-mute);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.site-nav {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+.site-nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.site-nav a:hover { background: var(--bg-alt); color: var(--ink); }
+
+.header-end {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  background: var(--bg-alt);
+  border-radius: 999px;
+  padding: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.lang-toggle button {
+  color: var(--ink-mute);
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: all 0.15s;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+.lang-toggle button.on {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+.lang-divider { display: none; }
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  box-shadow: 0 2px 8px rgba(27, 95, 191, 0.25);
+  white-space: nowrap;
+}
+.btn-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(27, 95, 191, 0.32);
+}
+.btn-cta-arrow { transition: transform 0.2s; font-size: 14px; }
+.btn-cta:hover .btn-cta-arrow { transform: translateX(2px); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 80px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 10px;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-deep);
+  letter-spacing: -0.005em;
+  margin-bottom: 28px;
+  white-space: nowrap;
+}
+.eb-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+}
+.eb-dot::after {
+  content: ""; position: absolute; inset: -4px;
+  border-radius: 50%; background: inherit; opacity: 0.4;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+.eb-dot { position: relative; }
+@keyframes pulse {
+  0%, 100% { transform: scale(0.6); opacity: 0.5; }
+  50% { transform: scale(1.4); opacity: 0; }
+}
+
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(40px, 5.4vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.hero-title.lang-en { letter-spacing: -0.04em; }
+.hl-line { display: block; }
+.hl-line.indent { padding-left: 0; }
+.hl-period { color: var(--accent); }
+
+.hero-lede {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 500px;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 14px rgba(27, 95, 191, 0.28);
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(27, 95, 191, 0.36);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-secondary:hover { background: var(--rule); }
+
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-mute);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.hero-meta-pulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  position: relative;
+  background: var(--success) !important;
+}
+.hero-meta-pulse::after {
+  content: ""; position: absolute; inset: -2px;
+  border-radius: 50%; background: var(--success);
+  opacity: 0.3; animation: ring 2s ease-in-out infinite;
+}
+@keyframes ring {
+  0% { transform: scale(0.8); opacity: 0.4; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* Hero figure */
+.hero-right { position: relative; }
+.hero-figure { margin: 0; position: relative; }
+.figure-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-soft);
+}
+.figure-corner { display: none; }
+
+.figure-cap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--ink-mute);
+  font-weight: 500;
+}
+.figure-cap span:last-child { white-space: nowrap; }
+.cap-rule {
+  width: 24px; height: 1px; background: var(--ink-faint); flex-shrink: 0;
+}
+
+/* Floating credential card */
+.hero-figure::after {
+  content: "";
+  position: absolute;
+  bottom: 80px; right: -24px;
+  width: 200px; height: 90px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  pointer-events: none;
+}
+.hero-badge {
+  position: absolute;
+  bottom: 80px; right: -24px;
+  width: 200px;
+  padding: 16px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-figure::after { display: none; }
+
+.hero-badge-icon {
+  width: 38px; height: 38px;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hero-badge-text { line-height: 1.3; }
+.hero-badge-text small {
+  font-size: 11px;
+  color: var(--ink-mute);
+  font-weight: 500;
+  display: block;
+}
+.hero-badge-text b {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* Placeholder visual */
+.ph {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #EEF2F8 0%, #DCE4EF 100%);
+  color: var(--ink);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ph-portrait { aspect-ratio: 4 / 5; }
+.ph-square   { aspect-ratio: 1 / 1; }
+.ph-landscape { aspect-ratio: 16 / 10; }
+.ph-stripes { display: none; }
+.ph-label {
+  position: relative;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  display: flex;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+.ph-bracket { color: var(--accent); }
+
+/* ============================================================
+   MARQUEE — credential strip
+   ============================================================ */
+.marquee {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 0;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+.marquee-track {
+  display: inline-flex;
+  gap: 56px;
+  white-space: nowrap;
+  animation: marquee 60s linear infinite;
+  padding-left: 56px;
+}
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.marquee-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+/* ============================================================
+   SECTION LABEL
+   ============================================================ */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.section-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent-deep) !important;
+  font-size: 12px;
+  font-weight: 700;
+  font-style: normal !important;
+  font-family: var(--mono);
+}
+.section-rule { display: none; }
+.section-kicker {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: var(--ink);
+  text-wrap: balance;
+  font-style: normal !important;
+}
+.section-title.lang-en { font-style: normal; }
+.title-line { display: block; }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about {
+  padding: 100px 0 120px;
+  border-top: 1px solid var(--rule);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 72px;
+  align-items: start;
+}
+.about-left .section-title { margin-bottom: 28px; }
+.about-left .ph {
+  margin-bottom: 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.pull-quote {
+  font-family: var(--display);
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  padding: 20px 24px;
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--accent);
+}
+
+.about-right { padding-top: 8px; }
+.about-body p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.about-body p:first-letter { font-size: 1em; font-weight: 400; color: inherit; }
+
+.cred-list {
+  margin-top: 44px;
+  padding: 24px;
+  border-top: none;
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+}
+.cred-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.cred-rule { flex: 1; height: 1px; background: var(--rule); }
+.cred-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  font-size: 14px;
+  align-items: center;
+}
+.cred-row:last-child { border-bottom: none; }
+.cred-year {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+.cred-text { color: var(--ink-soft); font-weight: 500; }
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.services {
+  padding: 100px 0 120px;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--rule);
+}
+.services-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+.services-lede {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  border: none !important;
+}
+.service-card {
+  padding: 28px;
+  border: 1px solid var(--rule) !important;
+  border-radius: var(--radius);
+  background: #fff !important;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+}
+.service-card:hover,
+.service-card.active,
+.service-card:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent) !important;
+}
+.service-tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.service-tag {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  border: none !important;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 14px;
+  font-style: normal !important;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+.service-card:hover .service-tag,
+.service-card.active .service-tag {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+.service-en {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 600;
+}
+.service-name {
+  font-family: var(--display);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-top: 4px;
+  color: var(--ink);
+  font-style: normal !important;
+}
+.service-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.service-arrow {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.service-rule { flex: 1; height: 1px; background: var(--rule); opacity: 1; }
+
+/* ============================================================
+   VISIT
+   ============================================================ */
+.visit {
+  padding: 100px 0 120px;
+  border-top: 1px solid var(--rule);
+}
+.visit-head { margin-bottom: 48px; }
+
+.visit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  border: none !important;
+}
+.visit-map-card {
+  grid-column: span 2;
+  grid-row: span 2;
+  padding: 0 !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: var(--radius);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.map-frame {
+  position: relative;
+  flex: 1;
+  min-height: 300px;
+  background: var(--bg-alt);
+  overflow: hidden;
+  color: var(--ink);
+}
+.map-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.map-pin {
+  position: absolute;
+  top: 49%; left: 58%;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 0 5px rgba(27, 95, 191, 0.18), 0 4px 12px rgba(27, 95, 191, 0.3);
+}
+.map-pin-inner { width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+.map-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--rule);
+}
+.map-address {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+  font-weight: 600;
+}
+.map-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  border-bottom: none !important;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.visit-card {
+  padding: 24px;
+  border: 1px solid var(--rule) !important;
+  border-radius: var(--radius);
+  background: #fff !important;
+  box-shadow: var(--shadow-sm);
+}
+.visit-card-wide { grid-column: span 4; }
+
+.visit-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent-deep) !important;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-style: normal !important;
+  font-weight: 700;
+}
+.visit-card-head h3 {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--ink) !important;
+  font-weight: 700;
+}
+
+.hours-list { display: flex; flex-direction: column; gap: 0; }
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule-soft) !important;
+  font-size: 14px;
+}
+.hours-row:last-child { border-bottom: none !important; }
+.hours-row dt { color: var(--ink-soft); font-weight: 500; }
+.hours-row dd {
+  color: var(--ink); font-family: var(--mono); font-size: 12px; font-weight: 600;
+}
+
+.contact-list, .transport-list, .insurance-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-list li, .transport-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule-soft) !important;
+  font-size: 14px;
+}
+.contact-list li:last-child, .transport-list li:last-child { border-bottom: none !important; }
+.contact-key {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 700;
+}
+.contact-val { color: var(--ink); font-weight: 500; }
+.contact-val.phone {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.insurance-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  border-top: none !important;
+}
+.insurance-list li {
+  padding: 14px 12px;
+  border: 1px solid var(--rule) !important;
+  border-radius: 10px;
+  background: var(--bg-soft);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--ink);
+}
+.insurance-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--ink-mute);
+  font-style: normal;
+}
+
+/* ============================================================
+   RESOURCES
+   ============================================================ */
+.resources {
+  padding: 100px 0 120px;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--rule);
+}
+.resources-head { margin-bottom: 40px; }
+
+.resources-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  border-top: none !important;
+}
+.resource-row {
+  display: flex !important;
+  flex-direction: column;
+  gap: 12px !important;
+  padding: 28px !important;
+  margin: 0 !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: var(--radius);
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.resource-row:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  background: #fff !important;
+}
+.resource-tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 4px 10px;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.resource-title {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.25;
+  font-style: normal !important;
+  color: var(--ink);
+}
+.resource-body p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.resource-link {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.resource-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent) !important;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  transition: gap 0.2s;
+}
+.resource-link a:hover { gap: 12px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 72px 0 28px;
+}
+.site-footer .container { max-width: 1240px; }
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 40px;
+  gap: 24px;
+}
+.footer-brand { display: flex; align-items: center; gap: 14px; }
+.footer-mark {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.fn-ko {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.fn-en {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.5);
+  margin-top: 2px;
+  font-weight: 500;
+  text-transform: none;
+}
+.footer-tagline {
+  font-family: var(--display);
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  text-align: right;
+  max-width: 380px;
+  letter-spacing: -0.01em;
+}
+
+.footer-mid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 24px;
+}
+.footer-key {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.footer-val {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+}
+
+.footer-bot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+}
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { transition: color 0.15s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.9); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .hero-grid, .about-grid, .services-head { grid-template-columns: 1fr; gap: 48px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .visit-grid { grid-template-columns: repeat(2, 1fr); }
+  .visit-map-card { grid-column: span 2; grid-row: auto; }
+  .insurance-list { grid-template-columns: repeat(3, 1fr); }
+  .resources-list { grid-template-columns: 1fr; }
+  .footer-mid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { flex-direction: column; align-items: flex-start; }
+  .footer-tagline { text-align: left; }
+  .hero-badge { display: none; }
+}
+@media (max-width: 720px) {
+  .container, .header-inner, .hero-grid { padding-left: 20px; padding-right: 20px; }
+  .header-inner { gap: 12px; grid-template-columns: 1fr auto; }
+  .site-nav { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .visit-grid { grid-template-columns: 1fr; }
+  .visit-map-card { grid-column: span 1; }
+  .insurance-list { grid-template-columns: repeat(2, 1fr); }
+  .footer-mid { grid-template-columns: 1fr; }
+}
+
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+// Bilingual copy dictionary — Korean primary, English secondary
+window.COPY = {
+  ko: {
+    nav: {
+      about: "의료진 소개",
+      services: "진료 분야",
+      visit: "오시는 길",
+      resources: "환자 자료",
+      cta: "예약 문의",
+    },
+    hero: {
+      eyebrow: "LA 코리아타운 · 신경과 전문의",
+      titleLine1: "두통, 어지럼증,",
+      titleLine2: "정확한 진단으로",
+      titleLine3: "해결합니다",
+      lede: "가톨릭대학교 교수 출신 · USC 임상신경생리학 펠로우 수료 신경과 전문의가 코리아타운에서 한국어로 직접 진료합니다.",
+      primary: "예약 문의",
+      secondary: "진료 분야",
+      meta: "월–금 9:00–17:00 진료",
+      figure: "김민희 원장 사진",
+      figureCaption: "김민희 M.D., Ph.D. — 신경과 전문의",
+    },
+    marquee: [
+      "가톨릭대학교 의과대학 교수 출신",
+      "USC 임상신경생리학 펠로우 수료",
+      "EEG · EMG · NCS 자체 검사",
+      "미국 신경과 전문의 · AAN 정회원",
+      "한국어 · 영어 이중 진료",
+      "15년+ 임상 경력",
+    ],
+    about: {
+      number: "01",
+      kicker: "의료진 소개",
+      title: "교수 출신 전문의,\n코리아타운에서.",
+      body: "김민희 원장은 인제대학교 의과대학을 졸업하고 가톨릭대학교 의과대학에서 의학박사 학위를 취득했습니다. 가톨릭대학교 여의도성모병원 임상진료조교수로 재직 후, 미국으로 건너와 SUNY Downstate에서 신경과 레지던트를, USC에서 임상신경생리학 펠로우십을 수료했습니다.",
+      body2: "한·미 양국에서 15년 이상 쌓아온 임상 경험을 바탕으로, 환자 한 분 한 분께 충분한 시간을 드리며 대학병원 수준의 진료를 제공합니다.",
+      cred: [
+        ["인제대", "의학사 (M.D.) — 인제대학교 의과대학"],
+        ["가톨릭대", "의학박사 (Ph.D.) — 가톨릭대학교 의과대학"],
+        ["교수", "임상진료조교수 — 가톨릭대 여의도성모병원"],
+        ["SUNY", "신경과 레지던트 — SUNY Downstate Medical Center"],
+        ["USC", "임상신경생리학 펠로우 — USC (남가주대학교)"],
+      ],
+      pull: "「환자 한 분 한 분의 이야기를 충분히 듣고, 대학병원 수준의 정확한 진단을 통해 삶의 질을 높이는 것이 저의 목표입니다.」",
+    },
+    services: {
+      number: "02",
+      kicker: "진료 분야",
+      title: "전문 진료 영역",
+      lede: "신경계 질환 전반을 진료합니다. 자체 검사실에서 EEG·EMG·NCS를 시행하고 결과를 상담합니다.",
+      items: [
+        {
+          tag: "A",
+          name: "뇌파검사 (EEG)",
+          en: "Electroencephalography",
+          desc: "뇌전증, 수면장애, 의식장애 진단을 위한 정밀 뇌파 분석. 자체 검사실에서 시행하며 신속한 판독 결과를 제공합니다.",
+        },
+        {
+          tag: "B",
+          name: "근전도·신경전도검사",
+          en: "EMG / NCS",
+          desc: "손발 저림, 근력 저하, 근육 약화 원인 규명. 손목터널증후군, 말초신경병증 진단의 표준 검사입니다.",
+        },
+        {
+          tag: "C",
+          name: "두통 클리닉",
+          en: "Headache Clinic",
+          desc: "편두통, 긴장성 두통, 군발성 두통 등 체계적 진단과 치료. 보톡스 시술 및 CGRP 표적치료 가능합니다.",
+        },
+        {
+          tag: "D",
+          name: "통증 클리닉",
+          en: "Pain Management",
+          desc: "보톡스 치료, 만성통증, 복합부위통증증후군(CRPS) 전문 관리.",
+        },
+        {
+          tag: "E",
+          name: "말초신경병증",
+          en: "Peripheral Neuropathy",
+          desc: "당뇨병성 신경병증, 손발 저림, 감각 이상의 정밀 진단 및 맞춤 치료.",
+        },
+        {
+          tag: "F",
+          name: "운동장애 / 기타",
+          en: "Movement Disorders",
+          desc: "파킨슨병, 떨림, 안면신경마비, 뇌졸중 후 관리 등 신경과 전반을 진료합니다.",
+        },
+      ],
+    },
+    visit: {
+      number: "03",
+      kicker: "오시는 길",
+      title: "방문 안내",
+      address: ["2727 W Olympic Blvd", "Los Angeles, CA 90006"],
+      phone: "준비 중",
+      fax: "준비 중",
+      email: "준비 중",
+      hours: [
+        ["월 – 금", "오전 9:00 – 오후 5:00"],
+        ["토 · 일 · 공휴일", "휴진"],
+      ],
+      transport: [
+        ["주차", "건물 주차장 이용 가능"],
+        ["버스", "Olympic Blvd 인근 Metro 버스 정류장"],
+      ],
+      insurance: ["Medicare", "Blue Cross PPO", "Aetna", "Cigna", "United Healthcare", "기타 보험 문의"],
+    },
+    resources: {
+      number: "04",
+      kicker: "환자 자료",
+      title: "방문 전 알아두실 사항",
+      items: [
+        {
+          tag: "초진 안내",
+          title: "처음 방문하시나요?",
+          body: "예약 시간 15분 전 도착해 주세요. 신분증, 보험카드, 복용 중인 약 목록(또는 약병)을 지참해 주시면 진료가 원활합니다.",
+          link: "초진 서식 안내",
+        },
+        {
+          tag: "EEG 준비",
+          title: "뇌파검사 전 안내",
+          body: "검사 전날 머리를 감아 주시고, 헤어젤·스프레이는 사용하지 마세요. 검사는 약 60–90분 소요되며, 카페인은 24시간 전부터 피해 주세요.",
+          link: "EEG 준비 사항 보기",
+        },
+        {
+          tag: "의뢰 안내",
+          title: "타과 의뢰",
+          body: "타과에서 신경과 의뢰 시 이메일 또는 팩스로 문의해 주세요. 통상 3영업일 내 회신드립니다.",
+          link: "의뢰 안내",
+        },
+        {
+          tag: "FAQ",
+          title: "자주 묻는 질문",
+          body: "보험 청구, 한국 처방전 인정 여부, 이중 언어 진료, 응급 안내 등 자주 묻는 질문 모음입니다.",
+          link: "FAQ 전체 보기",
+        },
+      ],
+    },
+    footer: {
+      tagline: "정확한 진단, 충분한 시간.",
+      address: "2727 W Olympic Blvd, Los Angeles, CA 90006",
+      copyright: "© 2025 Minhee Kim MD Neurology Inc. All rights reserved.",
+      legal: ["개인정보처리방침", "HIPAA 통지", "ADA 접근성"],
+    },
+  },
+
+  en: {
+    nav: {
+      about: "About",
+      services: "Services",
+      visit: "Visit",
+      resources: "Patients",
+      cta: "Make an Appointment",
+    },
+    hero: {
+      eyebrow: "Board-Certified Neurologist · Koreatown, LA",
+      titleLine1: "Headaches.",
+      titleLine2: "Dizziness.",
+      titleLine3: "Answered",
+      lede: "Former professor at The Catholic University of Korea · USC Clinical Neurophysiology Fellowship. Board-certified neurology in Korean and English. In-house EEG, EMG, and NCS.",
+      primary: "Contact Us",
+      secondary: "Our Services",
+      meta: "Mon–Fri 9:00–5:00 PM",
+      figure: "Dr. Minhee Kim",
+      figureCaption: "Minhee Kim, M.D., Ph.D. — Neurologist",
+    },
+    marquee: [
+      "Former Professor, Catholic University of Korea",
+      "USC Clinical Neurophysiology Fellowship",
+      "In-house EEG · EMG · NCS lab",
+      "Board-Certified Neurologist · AAN Member",
+      "Korean & English fluency",
+      "15+ Years Clinical Experience",
+    ],
+    about: {
+      number: "01",
+      kicker: "About",
+      title: "Former professor.\nNow in Koreatown.",
+      body: "Dr. Minhee Kim graduated from Inje University College of Medicine and earned her Ph.D. from The Catholic University of Korea. After serving as Clinical Assistant Professor at Yeouido St. Mary's Hospital, she completed a Neurology Residency at SUNY Downstate and a Clinical Neurophysiology Fellowship at USC.",
+      body2: "With over 15 years of combined clinical experience in Korea and the United States, Dr. Kim brings university-hospital-level expertise directly to the Koreatown community.",
+      cred: [
+        ["Inje Univ.", "M.D. — Inje University College of Medicine"],
+        ["Catholic Univ.", "Ph.D. — The Catholic University of Korea"],
+        ["Professor", "Clinical Asst. Professor — Yeouido St. Mary's Hospital"],
+        ["SUNY", "Neurology Residency — SUNY Downstate Medical Center"],
+        ["USC", "Clinical Neurophysiology Fellowship — USC"],
+      ],
+      pull: '"Listening fully to each patient, then delivering university-hospital-level precision — that is how I raise quality of life."',
+    },
+    services: {
+      number: "02",
+      kicker: "Services",
+      title: "Areas of Practice",
+      lede: "We treat the full breadth of neurological conditions. In-house EEG, EMG, and NCS available for same-day testing and results.",
+      items: [
+        { tag: "A", name: "EEG", en: "뇌파검사", desc: "Electroencephalography for seizure work-up, sleep disorders, and loss of consciousness. Performed in our own lab for fast results." },
+        { tag: "B", name: "EMG / NCS", en: "근전도·신경전도", desc: "Electrodiagnostic studies for numbness, weakness, and tingling. The standard of care for carpal tunnel syndrome and peripheral neuropathies." },
+        { tag: "C", name: "Headache Clinic", en: "두통 클리닉", desc: "Migraine, tension-type, cluster, and medication-overuse headache. Botox and CGRP-targeted therapies available." },
+        { tag: "D", name: "Pain Management", en: "통증 클리닉", desc: "Botox therapy, chronic pain, and complex regional pain syndrome (CRPS) management." },
+        { tag: "E", name: "Peripheral Neuropathy", en: "말초신경병증", desc: "Diabetic neuropathy, numbness, and sensory abnormalities — precise diagnosis and personalized treatment." },
+        { tag: "F", name: "Movement Disorders", en: "운동장애", desc: "Parkinson's disease, tremor, Bell's palsy, post-stroke care, and the broader scope of neurology." },
+      ],
+    },
+    visit: {
+      number: "03",
+      kicker: "Visit",
+      title: "Plan your visit",
+      address: ["2727 W Olympic Blvd", "Los Angeles, CA 90006"],
+      phone: "TBD",
+      fax: "TBD",
+      email: "TBD",
+      hours: [
+        ["Mon – Fri", "9:00 AM – 5:00 PM"],
+        ["Sat · Sun · Holidays", "Closed"],
+      ],
+      transport: [
+        ["Parking", "Building parking lot available"],
+        ["Bus", "Metro bus stops near Olympic Blvd"],
+      ],
+      insurance: ["Medicare", "Blue Cross PPO", "Aetna", "Cigna", "United Healthcare", "Other — call us"],
+    },
+    resources: {
+      number: "04",
+      kicker: "Patients",
+      title: "Before your visit",
+      items: [
+        { tag: "First Visit", title: "Visiting us for the first time?", body: "Please arrive 15 minutes before your appointment. Bring photo ID, your insurance card, and a list (or the bottles) of every medication you currently take.", link: "New-patient information" },
+        { tag: "EEG Prep", title: "Preparing for an EEG", body: "Wash your hair the night before — no gel or spray. The study takes 60–90 minutes. Avoid caffeine for 24 hours prior.", link: "Read EEG preparation" },
+        { tag: "Referrals", title: "For referring physicians", body: "Please contact us by email or fax. We respond within three business days.", link: "Referral information" },
+        { tag: "FAQ", title: "Common questions", body: "Insurance billing, Korean prescriptions, bilingual services, and emergency guidance — all in one place.", link: "Read all FAQs" },
+      ],
+    },
+    footer: {
+      tagline: "Precise diagnosis. Time to listen.",
+      address: "2727 W Olympic Blvd, Los Angeles, CA 90006",
+      copyright: "© 2025 Minhee Kim MD Neurology Inc. All rights reserved.",
+      legal: ["Privacy", "HIPAA Notice", "ADA Accessibility"],
+    },
+  },
+};
+
+</script>
+
+<script type="text/babel" data-presets="react">
+
+// tweaks-panel.jsx
+// Reusable Tweaks shell + form-control helpers.
+//
+// Owns the host protocol (listens for __activate_edit_mode / __deactivate_edit_mode,
+// posts __edit_mode_available / __edit_mode_set_keys / __edit_mode_dismissed) so
+// individual prototypes don't re-roll it. Ships a consistent set of controls so you
+// don't hand-draw <input type="range">, segmented radios, steppers, etc.
+//
+// Usage (in an HTML file that loads React + Babel):
+//
+//   const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+//     "primaryColor": "#D97757",
+//     "fontSize": 16,
+//     "density": "regular",
+//     "dark": false
+//   }/*EDITMODE-END*/;
+//
+//   function App() {
+//     const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+//     return (
+//       <div style={{ fontSize: t.fontSize, color: t.primaryColor }}>
+//         Hello
+//         <TweaksPanel>
+//           <TweakSection label="Typography" />
+//           <TweakSlider label="Font size" value={t.fontSize} min={10} max={32} unit="px"
+//                        onChange={(v) => setTweak('fontSize', v)} />
+//           <TweakRadio  label="Density" value={t.density}
+//                        options={['compact', 'regular', 'comfy']}
+//                        onChange={(v) => setTweak('density', v)} />
+//           <TweakSection label="Theme" />
+//           <TweakColor  label="Primary" value={t.primaryColor}
+//                        onChange={(v) => setTweak('primaryColor', v)} />
+//           <TweakToggle label="Dark mode" value={t.dark}
+//                        onChange={(v) => setTweak('dark', v)} />
+//         </TweaksPanel>
+//       </div>
+//     );
+//   }
+//
+// ─────────────────────────────────────────────────────────────────────────────
+
+const __TWEAKS_STYLE = `
+  .twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;
+    max-height:calc(100vh - 32px);display:flex;flex-direction:column;
+    background:rgba(250,249,247,.78);color:#29261b;
+    -webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);
+    border:.5px solid rgba(255,255,255,.6);border-radius:14px;
+    box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 12px 40px rgba(0,0,0,.18);
+    font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}
+  .twk-hd{display:flex;align-items:center;justify-content:space-between;
+    padding:10px 8px 10px 14px;cursor:move;user-select:none}
+  .twk-hd b{font-size:12px;font-weight:600;letter-spacing:.01em}
+  .twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);
+    width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}
+  .twk-x:hover{background:rgba(0,0,0,.06);color:#29261b}
+  .twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;
+    overflow-y:auto;overflow-x:hidden;min-height:0;
+    scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.15) transparent}
+  .twk-body::-webkit-scrollbar{width:8px}
+  .twk-body::-webkit-scrollbar-track{background:transparent;margin:2px}
+  .twk-body::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);border-radius:4px;
+    border:2px solid transparent;background-clip:content-box}
+  .twk-body::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.25);
+    border:2px solid transparent;background-clip:content-box}
+  .twk-row{display:flex;flex-direction:column;gap:5px}
+  .twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
+  .twk-lbl{display:flex;justify-content:space-between;align-items:baseline;
+    color:rgba(41,38,27,.72)}
+  .twk-lbl>span:first-child{font-weight:500}
+  .twk-val{color:rgba(41,38,27,.5);font-variant-numeric:tabular-nums}
+
+  .twk-sect{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(41,38,27,.45);padding:10px 0 0}
+  .twk-sect:first-child{padding-top:0}
+
+  .twk-field{appearance:none;width:100%;height:26px;padding:0 8px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:7px;
+    background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}
+  .twk-field:focus{border-color:rgba(0,0,0,.25);background:rgba(255,255,255,.85)}
+  select.twk-field{padding-right:22px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='rgba(0,0,0,.5)' d='M0 0h10L5 6z'/></svg>");
+    background-repeat:no-repeat;background-position:right 8px center}
+
+  .twk-slider{appearance:none;-webkit-appearance:none;width:100%;height:4px;margin:6px 0;
+    border-radius:999px;background:rgba(0,0,0,.12);outline:none}
+  .twk-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
+    width:14px;height:14px;border-radius:50%;background:#fff;
+    border:.5px solid rgba(0,0,0,.12);box-shadow:0 1px 3px rgba(0,0,0,.2);cursor:default}
+  .twk-slider::-moz-range-thumb{width:14px;height:14px;border-radius:50%;
+    background:#fff;border:.5px solid rgba(0,0,0,.12);box-shadow:0 1px 3px rgba(0,0,0,.2);cursor:default}
+
+  .twk-seg{position:relative;display:flex;padding:2px;border-radius:8px;
+    background:rgba(0,0,0,.06);user-select:none}
+  .twk-seg-thumb{position:absolute;top:2px;bottom:2px;border-radius:6px;
+    background:rgba(255,255,255,.9);box-shadow:0 1px 2px rgba(0,0,0,.12);
+    transition:left .15s cubic-bezier(.3,.7,.4,1),width .15s}
+  .twk-seg.dragging .twk-seg-thumb{transition:none}
+  .twk-seg button{appearance:none;position:relative;z-index:1;flex:1;border:0;
+    background:transparent;color:inherit;font:inherit;font-weight:500;min-height:22px;
+    border-radius:6px;cursor:default;padding:4px 6px;line-height:1.2;
+    overflow-wrap:anywhere}
+
+  .twk-toggle{position:relative;width:32px;height:18px;border:0;border-radius:999px;
+    background:rgba(0,0,0,.15);transition:background .15s;cursor:default;padding:0}
+  .twk-toggle[data-on="1"]{background:#34c759}
+  .twk-toggle i{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;
+    background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
+  .twk-toggle[data-on="1"] i{transform:translateX(14px)}
+
+  .twk-num{display:flex;align-items:center;height:26px;padding:0 0 0 8px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6)}
+  .twk-num-lbl{font-weight:500;color:rgba(41,38,27,.6);cursor:ew-resize;
+    user-select:none;padding-right:8px}
+  .twk-num input{flex:1;min-width:0;height:100%;border:0;background:transparent;
+    font:inherit;font-variant-numeric:tabular-nums;text-align:right;padding:0 8px 0 0;
+    outline:none;color:inherit;-moz-appearance:textfield}
+  .twk-num input::-webkit-inner-spin-button,.twk-num input::-webkit-outer-spin-button{
+    -webkit-appearance:none;margin:0}
+  .twk-num-unit{padding-right:8px;color:rgba(41,38,27,.45)}
+
+  .twk-btn{appearance:none;height:26px;padding:0 12px;border:0;border-radius:7px;
+    background:rgba(0,0,0,.78);color:#fff;font:inherit;font-weight:500;cursor:default}
+  .twk-btn:hover{background:rgba(0,0,0,.88)}
+  .twk-btn.secondary{background:rgba(0,0,0,.06);color:inherit}
+  .twk-btn.secondary:hover{background:rgba(0,0,0,.1)}
+
+  .twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;cursor:default;
+    background:transparent;flex-shrink:0}
+  .twk-swatch::-webkit-color-swatch-wrapper{padding:0}
+  .twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}
+  .twk-swatch::-moz-color-swatch{border:0;border-radius:5.5px}
+`;
+
+// ── useTweaks ───────────────────────────────────────────────────────────────
+// Single source of truth for tweak values. setTweak persists via the host
+// (__edit_mode_set_keys → host rewrites the EDITMODE block on disk).
+function useTweaks(defaults) {
+  const [values, setValues] = React.useState(defaults);
+  // Accepts either setTweak('key', value) or setTweak({ key: value, ... }) so a
+  // useState-style call doesn't write a "[object Object]" key into the persisted
+  // JSON block.
+  const setTweak = React.useCallback((keyOrEdits, val) => {
+    const edits = typeof keyOrEdits === 'object' && keyOrEdits !== null
+      ? keyOrEdits : { [keyOrEdits]: val };
+    setValues((prev) => ({ ...prev, ...edits }));
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
+  }, []);
+  return [values, setTweak];
+}
+
+// ── TweaksPanel ─────────────────────────────────────────────────────────────
+// Floating shell. Registers the protocol listener BEFORE announcing
+// availability — if the announce ran first, the host's activate could land
+// before our handler exists and the toolbar toggle would silently no-op.
+// The close button posts __edit_mode_dismissed so the host's toolbar toggle
+// flips off in lockstep; the host echoes __deactivate_edit_mode back which
+// is what actually hides the panel.
+function TweaksPanel({ title = 'Tweaks', children }) {
+  const [open, setOpen] = React.useState(false);
+  const dragRef = React.useRef(null);
+  const offsetRef = React.useRef({ x: 16, y: 16 });
+  const PAD = 16;
+
+  const clampToViewport = React.useCallback(() => {
+    const panel = dragRef.current;
+    if (!panel) return;
+    const w = panel.offsetWidth, h = panel.offsetHeight;
+    const maxRight = Math.max(PAD, window.innerWidth - w - PAD);
+    const maxBottom = Math.max(PAD, window.innerHeight - h - PAD);
+    offsetRef.current = {
+      x: Math.min(maxRight, Math.max(PAD, offsetRef.current.x)),
+      y: Math.min(maxBottom, Math.max(PAD, offsetRef.current.y)),
+    };
+    panel.style.right = offsetRef.current.x + 'px';
+    panel.style.bottom = offsetRef.current.y + 'px';
+  }, []);
+
+  React.useEffect(() => {
+    if (!open) return;
+    clampToViewport();
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', clampToViewport);
+      return () => window.removeEventListener('resize', clampToViewport);
+    }
+    const ro = new ResizeObserver(clampToViewport);
+    ro.observe(document.documentElement);
+    return () => ro.disconnect();
+  }, [open, clampToViewport]);
+
+  React.useEffect(() => {
+    const onMsg = (e) => {
+      const t = e?.data?.type;
+      if (t === '__activate_edit_mode') setOpen(true);
+      else if (t === '__deactivate_edit_mode') setOpen(false);
+    };
+    window.addEventListener('message', onMsg);
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
+  const dismiss = () => {
+    setOpen(false);
+    window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
+  };
+
+  const onDragStart = (e) => {
+    const panel = dragRef.current;
+    if (!panel) return;
+    const r = panel.getBoundingClientRect();
+    const sx = e.clientX, sy = e.clientY;
+    const startRight = window.innerWidth - r.right;
+    const startBottom = window.innerHeight - r.bottom;
+    const move = (ev) => {
+      offsetRef.current = {
+        x: startRight - (ev.clientX - sx),
+        y: startBottom - (ev.clientY - sy),
+      };
+      clampToViewport();
+    };
+    const up = () => {
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('mouseup', up);
+    };
+    window.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', up);
+  };
+
+  if (!open) return null;
+  return (
+    <>
+      <style>{__TWEAKS_STYLE}</style>
+      <div ref={dragRef} className="twk-panel" data-noncommentable=""
+           style={{ right: offsetRef.current.x, bottom: offsetRef.current.y }}>
+        <div className="twk-hd" onMouseDown={onDragStart}>
+          <b>{title}</b>
+          <button className="twk-x" aria-label="Close tweaks"
+                  onMouseDown={(e) => e.stopPropagation()}
+                  onClick={dismiss}>✕</button>
+        </div>
+        <div className="twk-body">{children}</div>
+      </div>
+    </>
+  );
+}
+
+// ── Layout helpers ──────────────────────────────────────────────────────────
+
+function TweakSection({ label, children }) {
+  return (
+    <>
+      <div className="twk-sect">{label}</div>
+      {children}
+    </>
+  );
+}
+
+function TweakRow({ label, value, children, inline = false }) {
+  return (
+    <div className={inline ? 'twk-row twk-row-h' : 'twk-row'}>
+      <div className="twk-lbl">
+        <span>{label}</span>
+        {value != null && <span className="twk-val">{value}</span>}
+      </div>
+      {children}
+    </div>
+  );
+}
+
+// ── Controls ────────────────────────────────────────────────────────────────
+
+function TweakSlider({ label, value, min = 0, max = 100, step = 1, unit = '', onChange }) {
+  return (
+    <TweakRow label={label} value={`${value}${unit}`}>
+      <input type="range" className="twk-slider" min={min} max={max} step={step}
+             value={value} onChange={(e) => onChange(Number(e.target.value))} />
+    </TweakRow>
+  );
+}
+
+function TweakToggle({ label, value, onChange }) {
+  return (
+    <div className="twk-row twk-row-h">
+      <div className="twk-lbl"><span>{label}</span></div>
+      <button type="button" className="twk-toggle" data-on={value ? '1' : '0'}
+              role="switch" aria-checked={!!value}
+              onClick={() => onChange(!value)}><i /></button>
+    </div>
+  );
+}
+
+function TweakRadio({ label, value, options, onChange }) {
+  const trackRef = React.useRef(null);
+  const [dragging, setDragging] = React.useState(false);
+  const opts = options.map((o) => (typeof o === 'object' ? o : { value: o, label: o }));
+  const idx = Math.max(0, opts.findIndex((o) => o.value === value));
+  const n = opts.length;
+
+  // The active value is read by pointer-move handlers attached for the lifetime
+  // of a drag — ref it so a stale closure doesn't fire onChange for every move.
+  const valueRef = React.useRef(value);
+  valueRef.current = value;
+
+  const segAt = (clientX) => {
+    const r = trackRef.current.getBoundingClientRect();
+    const inner = r.width - 4;
+    const i = Math.floor(((clientX - r.left - 2) / inner) * n);
+    return opts[Math.max(0, Math.min(n - 1, i))].value;
+  };
+
+  const onPointerDown = (e) => {
+    setDragging(true);
+    const v0 = segAt(e.clientX);
+    if (v0 !== valueRef.current) onChange(v0);
+    const move = (ev) => {
+      if (!trackRef.current) return;
+      const v = segAt(ev.clientX);
+      if (v !== valueRef.current) onChange(v);
+    };
+    const up = () => {
+      setDragging(false);
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+
+  return (
+    <TweakRow label={label}>
+      <div ref={trackRef} role="radiogroup" onPointerDown={onPointerDown}
+           className={dragging ? 'twk-seg dragging' : 'twk-seg'}>
+        <div className="twk-seg-thumb"
+             style={{ left: `calc(2px + ${idx} * (100% - 4px) / ${n})`,
+                      width: `calc((100% - 4px) / ${n})` }} />
+        {opts.map((o) => (
+          <button key={o.value} type="button" role="radio" aria-checked={o.value === value}>
+            {o.label}
+          </button>
+        ))}
+      </div>
+    </TweakRow>
+  );
+}
+
+function TweakSelect({ label, value, options, onChange }) {
+  return (
+    <TweakRow label={label}>
+      <select className="twk-field" value={value} onChange={(e) => onChange(e.target.value)}>
+        {options.map((o) => {
+          const v = typeof o === 'object' ? o.value : o;
+          const l = typeof o === 'object' ? o.label : o;
+          return <option key={v} value={v}>{l}</option>;
+        })}
+      </select>
+    </TweakRow>
+  );
+}
+
+function TweakText({ label, value, placeholder, onChange }) {
+  return (
+    <TweakRow label={label}>
+      <input className="twk-field" type="text" value={value} placeholder={placeholder}
+             onChange={(e) => onChange(e.target.value)} />
+    </TweakRow>
+  );
+}
+
+function TweakNumber({ label, value, min, max, step = 1, unit = '', onChange }) {
+  const clamp = (n) => {
+    if (min != null && n < min) return min;
+    if (max != null && n > max) return max;
+    return n;
+  };
+  const startRef = React.useRef({ x: 0, val: 0 });
+  const onScrubStart = (e) => {
+    e.preventDefault();
+    startRef.current = { x: e.clientX, val: value };
+    const decimals = (String(step).split('.')[1] || '').length;
+    const move = (ev) => {
+      const dx = ev.clientX - startRef.current.x;
+      const raw = startRef.current.val + dx * step;
+      const snapped = Math.round(raw / step) * step;
+      onChange(clamp(Number(snapped.toFixed(decimals))));
+    };
+    const up = () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+  return (
+    <div className="twk-num">
+      <span className="twk-num-lbl" onPointerDown={onScrubStart}>{label}</span>
+      <input type="number" value={value} min={min} max={max} step={step}
+             onChange={(e) => onChange(clamp(Number(e.target.value)))} />
+      {unit && <span className="twk-num-unit">{unit}</span>}
+    </div>
+  );
+}
+
+function TweakColor({ label, value, onChange }) {
+  return (
+    <div className="twk-row twk-row-h">
+      <div className="twk-lbl"><span>{label}</span></div>
+      <input type="color" className="twk-swatch" value={value}
+             onChange={(e) => onChange(e.target.value)} />
+    </div>
+  );
+}
+
+function TweakButton({ label, onClick, secondary = false }) {
+  return (
+    <button type="button" className={secondary ? 'twk-btn secondary' : 'twk-btn'}
+            onClick={onClick}>{label}</button>
+  );
+}
+
+Object.assign(window, {
+  useTweaks, TweaksPanel, TweakSection, TweakRow,
+  TweakSlider, TweakToggle, TweakRadio, TweakSelect,
+  TweakText, TweakNumber, TweakColor, TweakButton,
+});
+
+</script>
+
+<script type="text/babel" data-presets="react">
+// v2 Header / Hero / Marquee — modern clinical
+const { useState, useEffect, useRef } = React;
+
+function Header({ lang, setLang, t, accent }) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const links = [
+    { key: "about", href: "#about" },
+    { key: "services", href: "#services" },
+    { key: "visit", href: "#visit" },
+    { key: "resources", href: "#resources" },
+  ];
+
+  return (
+    <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
+      <div className="header-inner">
+        <a href="#top" className="brand">
+          <span className="brand-mark" style={{ background: accent }}>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 3v3a3 3 0 0 0 3 3v0a3 3 0 0 0 3-3V3" />
+              <path d="M9 21v-3a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v3" />
+              <path d="M12 9v6" />
+              <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
+          </span>
+          <span className="brand-text">
+            <span className="brand-ko">{lang === "ko" ? "김민희 신경과" : "Minhee Kim Neurology"}</span>
+            <span className="brand-en">{lang === "ko" ? "Minhee Kim Neurology, Los Angeles" : "Koreatown · Los Angeles"}</span>
+          </span>
+        </a>
+
+        <nav className="site-nav">
+          {links.map((l) => (
+            <a key={l.key} href={l.href}>{t.nav[l.key]}</a>
+          ))}
+        </nav>
+
+        <div className="header-end">
+          <div className="lang-toggle" role="group" aria-label="Language">
+            <button
+              className={lang === "ko" ? "on" : ""}
+              onClick={() => setLang("ko")}
+              aria-pressed={lang === "ko"}
+            >KO</button>
+            <button
+              className={lang === "en" ? "on" : ""}
+              onClick={() => setLang("en")}
+              aria-pressed={lang === "en"}
+            >EN</button>
+          </div>
+          <a href="#visit" className="btn-cta" style={{ background: accent }}>
+            {t.nav.cta}
+            <span className="btn-cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function Hero({ t, accent, lang }) {
+  return (
+    <section className="hero" id="top">
+      <div className="hero-grid">
+        <div className="hero-left">
+          <div className="hero-eyebrow">
+            <span className="eb-dot" style={{ background: accent }} />
+            <span>{t.hero.eyebrow}</span>
+          </div>
+
+          <h1 className={`hero-title lang-${lang}`}>
+            <span className="hl-line">{t.hero.titleLine1}</span>
+            <span className="hl-line">{t.hero.titleLine2}</span>
+            <span className="hl-line">
+              {t.hero.titleLine3}
+              <span className="hl-period" style={{ color: accent }}>.</span>
+            </span>
+          </h1>
+
+          <p className="hero-lede">{t.hero.lede}</p>
+
+          <div className="hero-actions">
+            <a href="#visit" className="btn-primary" style={{ background: accent }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+              {t.hero.primary}
+            </a>
+            <a href="#services" className="btn-secondary">
+              {t.hero.secondary}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+          <div className="hero-meta">
+            <span className="hero-meta-pulse" style={{ background: "var(--success)" }} />
+            <span>{t.hero.meta}</span>
+          </div>
+        </div>
+
+        <div className="hero-right">
+          <figure className="hero-figure">
+            <div className="figure-frame">
+              <Placeholder label={t.hero.figure} variant="portrait" />
+            </div>
+            <div className="hero-badge">
+              <div className="hero-badge-icon" style={{ background: "var(--accent-soft)", color: accent }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              </div>
+              <div className="hero-badge-text">
+                <small>{lang === "ko" ? "AAN 정회원" : "AAN Member"}</small>
+                <b>USC Fellowship</b>
+              </div>
+            </div>
+            <figcaption className="figure-cap">
+              <span className="cap-rule" />
+              <span>{t.hero.figureCaption}</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Placeholder({ label, variant = "landscape" }) {
+  return (
+    <div className={`ph ph-${variant}`} role="img" aria-label={label}>
+      <div className="ph-label">
+        <span>{label}</span>
+      </div>
+    </div>
+  );
+}
+
+function Marquee({ items, accent }) {
+  const doubled = [...items, ...items, ...items];
+  return (
+    <div className="marquee">
+      <div className="marquee-track">
+        {doubled.map((item, i) => (
+          <span className="marquee-item" key={i}>
+            <span className="marquee-dot" style={{ background: accent }} />
+            <span>{item}</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { Header, Hero, Placeholder, Marquee });
+
+</script>
+
+<script type="text/babel" data-presets="react">
+// About / Services sections
+function SectionLabel({ number, kicker, accent }) {
+  return (
+    <div className="section-label">
+      <span className="section-num" style={{ color: accent }}>{number}</span>
+      <span className="section-rule" />
+      <span className="section-kicker">{kicker}</span>
+    </div>
+  );
+}
+
+function About({ t, accent, lang }) {
+  return (
+    <section className="about" id="about">
+      <div className="container">
+        <SectionLabel number={t.about.number} kicker={t.about.kicker} accent={accent} />
+
+        <div className="about-grid">
+          <div className="about-left">
+            <h2 className={`section-title lang-${lang}`}>
+              {t.about.title.split("\n").map((line, i) => (
+                <span key={i} className="title-line">{line}</span>
+              ))}
+            </h2>
+
+            <Placeholder label={lang === "ko" ? "원장 사진" : "Doctor portrait"} variant="square" />
+
+            <blockquote className={`pull-quote lang-${lang}`}>
+              {t.about.pull}
+            </blockquote>
+          </div>
+
+          <div className="about-right">
+            <div className="about-body">
+              <p>{t.about.body}</p>
+              <p>{t.about.body2}</p>
+            </div>
+
+            <div className="cred-list">
+              <div className="cred-head">
+                <span>{lang === "ko" ? "약력" : "Curriculum Vitae"}</span>
+                <span className="cred-rule" />
+              </div>
+              {t.about.cred.map(([year, text], i) => (
+                <div className="cred-row" key={i}>
+                  <span className="cred-year">{year}</span>
+                  <span className="cred-text">{text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Services({ t, accent, lang }) {
+  const [active, setActive] = useState(0);
+
+  return (
+    <section className="services" id="services">
+      <div className="container">
+        <SectionLabel number={t.services.number} kicker={t.services.kicker} accent={accent} />
+
+        <div className="services-head">
+          <h2 className={`section-title lang-${lang}`}>
+            <span className="title-line">{t.services.title}</span>
+          </h2>
+          <p className="services-lede">{t.services.lede}</p>
+        </div>
+
+        <div className="services-grid">
+          {t.services.items.map((item, i) => (
+            <article
+              key={i}
+              className={`service-card ${active === i ? "active" : ""}`}
+              onMouseEnter={() => setActive(i)}
+              onFocus={() => setActive(i)}
+              tabIndex={0}
+            >
+              <div className="service-tag-row">
+                <span className="service-tag" style={active === i ? { background: accent, color: "#fff", borderColor: accent } : {}}>
+                  {item.tag}
+                </span>
+                <span className="service-en">{item.en}</span>
+              </div>
+              <h3 className={`service-name lang-${lang}`}>{item.name}</h3>
+              <p className="service-desc">{item.desc}</p>
+              <div className="service-arrow" style={{ color: accent }}>
+                <span className="service-rule" />
+                <span>→</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, { About, Services, SectionLabel });
+
+</script>
+
+<script type="text/babel" data-presets="react">
+// Visit / Resources / Footer
+function Visit({ t, accent, lang }) {
+  return (
+    <section className="visit" id="visit">
+      <div className="container">
+        <SectionLabel number={t.visit.number} kicker={t.visit.kicker} accent={accent} />
+
+        <div className="visit-head">
+          <h2 className={`section-title lang-${lang}`}>
+            <span className="title-line">{t.visit.title}</span>
+          </h2>
+        </div>
+
+        <div className="visit-grid">
+          {/* Map / address card */}
+          <div className="visit-map-card">
+            <div className="map-frame">
+              <MapMock accent={accent} />
+              <div className="map-pin" style={{ background: accent }}>
+                <span className="map-pin-inner" />
+              </div>
+            </div>
+            <div className="map-foot">
+              <div className="map-address">
+                {t.visit.address.map((line, i) => (
+                  <div key={i}>{line}</div>
+                ))}
+              </div>
+              <a href="#" className="map-link">
+                {lang === "ko" ? "지도 열기" : "Open in Maps"} ↗
+              </a>
+            </div>
+          </div>
+
+          {/* Hours */}
+          <div className="visit-card">
+            <div className="visit-card-head">
+              <span className="card-num">i.</span>
+              <h3>{lang === "ko" ? "진료 시간" : "Hours"}</h3>
+            </div>
+            <dl className="hours-list">
+              {t.visit.hours.map(([day, time], i) => (
+                <div className="hours-row" key={i}>
+                  <dt>{day}</dt>
+                  <dd>{time}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          {/* Contact */}
+          <div className="visit-card">
+            <div className="visit-card-head">
+              <span className="card-num">ii.</span>
+              <h3>{lang === "ko" ? "연락처" : "Contact"}</h3>
+            </div>
+            <ul className="contact-list">
+              <li>
+                <span className="contact-key">{lang === "ko" ? "전화" : "Phone"}</span>
+                <a href={`tel:+1${t.visit.phone.replace(/\D/g,"")}`} className="contact-val phone">{t.visit.phone}</a>
+              </li>
+              <li>
+                <span className="contact-key">Fax</span>
+                <span className="contact-val">{t.visit.fax}</span>
+              </li>
+              <li>
+                <span className="contact-key">Email</span>
+                <a href={`mailto:${t.visit.email}`} className="contact-val">{t.visit.email}</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Transport */}
+          <div className="visit-card">
+            <div className="visit-card-head">
+              <span className="card-num">iii.</span>
+              <h3>{lang === "ko" ? "교통편" : "Getting here"}</h3>
+            </div>
+            <ul className="transport-list">
+              {t.visit.transport.map(([key, val], i) => (
+                <li key={i}>
+                  <span className="contact-key">{key}</span>
+                  <span className="contact-val">{val}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Insurance */}
+          <div className="visit-card visit-card-wide">
+            <div className="visit-card-head">
+              <span className="card-num">iv.</span>
+              <h3>{lang === "ko" ? "취급 보험" : "Insurance accepted"}</h3>
+            </div>
+            <ul className="insurance-list">
+              {t.visit.insurance.map((ins, i) => (
+                <li key={i}>{ins}</li>
+              ))}
+            </ul>
+            <p className="insurance-note">
+              {lang === "ko"
+                ? "기타 보험은 전화로 문의해 주세요. 자기부담금(Copay)은 방문 시 결제됩니다."
+                : "For other plans, please call us. Copays are due at the time of visit."}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MapMock({ accent }) {
+  // Stylized map placeholder — Wilshire corridor feel
+  return (
+    <svg className="map-svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice">
+      <rect width="600" height="400" fill="currentColor" opacity="0.04" />
+      {/* Block grid */}
+      {Array.from({ length: 6 }).map((_, i) => (
+        <line key={`h${i}`} x1="0" y1={60 + i * 60} x2="600" y2={60 + i * 60} stroke="currentColor" strokeWidth="0.5" opacity="0.18" />
+      ))}
+      {Array.from({ length: 8 }).map((_, i) => (
+        <line key={`v${i}`} x1={75 + i * 75} y1="0" x2={75 + i * 75} y2="400" stroke="currentColor" strokeWidth="0.5" opacity="0.18" />
+      ))}
+      {/* Wilshire — main thoroughfare */}
+      <line x1="0" y1="200" x2="600" y2="200" stroke="currentColor" strokeWidth="6" opacity="0.18" />
+      <line x1="0" y1="200" x2="600" y2="200" stroke="currentColor" strokeWidth="1" opacity="0.5" strokeDasharray="6 6" />
+      <text x="20" y="194" fontSize="9" fill="currentColor" opacity="0.55" letterSpacing="0.2">W. OLYMPIC BLVD.</text>
+      {/* Cross street */}
+      <line x1="300" y1="0" x2="300" y2="400" stroke="currentColor" strokeWidth="3" opacity="0.15" />
+      <text x="306" y="380" fontSize="9" fill="currentColor" opacity="0.55" letterSpacing="0.2">S. NORMANDIE AVE.</text>
+      {/* Building footprint */}
+      <rect x="320" y="160" width="60" height="35" fill={accent} opacity="0.18" />
+      <rect x="320" y="160" width="60" height="35" fill="none" stroke={accent} strokeWidth="1.2" />
+      <text x="350" y="182" fontSize="8" fill={accent} textAnchor="middle" fontWeight="600">2727</text>
+    </svg>
+  );
+}
+
+function Resources({ t, accent, lang }) {
+  return (
+    <section className="resources" id="resources">
+      <div className="container">
+        <SectionLabel number={t.resources.number} kicker={t.resources.kicker} accent={accent} />
+        <div className="resources-head">
+          <h2 className={`section-title lang-${lang}`}>
+            <span className="title-line">{t.resources.title}</span>
+          </h2>
+        </div>
+
+        <div className="resources-list">
+          {t.resources.items.map((item, i) => (
+            <article className="resource-row" key={i}>
+              <div className="resource-tag">
+                <span style={{ color: accent }}>—</span> {item.tag}
+              </div>
+              <div className="resource-body">
+                <h3 className={`resource-title lang-${lang}`}>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+              <div className="resource-link">
+                <a href="#" style={{ color: accent }}>
+                  {item.link} <span>↗</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer({ t, accent, lang }) {
+  return (
+    <footer className="site-footer">
+      <div className="container">
+        <div className="footer-top">
+          <div className="footer-brand">
+            <div className="footer-mark" style={{ background: accent }}>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.4">
+                <path d="M12 2v6M12 16v6M2 12h6M16 12h6M5 5l4 4M15 15l4 4M19 5l-4 4M9 15l-4 4" />
+              </svg>
+            </div>
+            <div className="footer-name">
+              <div className="fn-ko">{lang === "ko" ? "김민희 신경과" : "Minhee Kim Neurology"}</div>
+              <div className="fn-en">{lang === "ko" ? "Minhee Kim Neurology" : "Koreatown · Los Angeles"}</div>
+            </div>
+          </div>
+          <div className={`footer-tagline lang-${lang}`}>
+            {t.footer.tagline}
+          </div>
+        </div>
+
+        <div className="footer-mid">
+          <div className="footer-col">
+            <div className="footer-key">{lang === "ko" ? "주소" : "Address"}</div>
+            <div className="footer-val">{t.footer.address}</div>
+          </div>
+          <div className="footer-col">
+            <div className="footer-key">{lang === "ko" ? "전화" : "Phone"}</div>
+            <div className="footer-val">{t.visit.phone}</div>
+          </div>
+          <div className="footer-col">
+            <div className="footer-key">{lang === "ko" ? "이메일" : "Email"}</div>
+            <div className="footer-val">{t.visit.email}</div>
+          </div>
+          <div className="footer-col">
+            <div className="footer-key">{lang === "ko" ? "진료시간" : "Hours"}</div>
+            <div className="footer-val">Mon–Fri 9–5 · Sat 9–1</div>
+          </div>
+        </div>
+
+        <div className="footer-bot">
+          <div>{t.footer.copyright}</div>
+          <div className="footer-legal">
+            {t.footer.legal.map((item, i) => (
+              <a key={i} href="#">{item}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+Object.assign(window, { Visit, Resources, Footer, MapMock });
+
+</script>
+
+<script type="text/babel" data-presets="react">
+// v2 App — modern clinical theme
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "lang": "ko",
+  "accent": "#1B5FBF",
+  "theme": "white"
+}/*EDITMODE-END*/;
+
+const THEMES_V2 = {
+  white: { bg: "#FFFFFF", bgAlt: "#F4F6FA", bgSoft: "#F8FAFC", paper: "#FFFFFF", ink: "#0B1220", inkSoft: "#2A3447", inkMute: "#6B7589" },
+  cool:  { bg: "#F8FAFC", bgAlt: "#EEF2F8", bgSoft: "#F1F4F9", paper: "#FFFFFF", ink: "#0B1220", inkSoft: "#2A3447", inkMute: "#6B7589" },
+  warm:  { bg: "#FAFAF7", bgAlt: "#F2F1EC", bgSoft: "#F6F5F0", paper: "#FFFFFF", ink: "#1A1916", inkSoft: "#3A372E", inkMute: "#6B6859" },
+  dark:  { bg: "#0B1220", bgAlt: "#141C2E", bgSoft: "#0F1626", paper: "#141C2E", ink: "#F4F6FA", inkSoft: "#C8CFDA", inkMute: "#8A93A6" },
+};
+
+const ACCENT_PRESETS_V2 = [
+  { value: "#1B5FBF", label: "Clinical blue" },
+  { value: "#0E76C2", label: "Sky blue" },
+  { value: "#0E9F6E", label: "Medical green" },
+  { value: "#5B5FE3", label: "Indigo" },
+  { value: "#0F766E", label: "Teal" },
+  { value: "#1F2A44", label: "Navy" },
+];
+
+function applyThemeV2(theme, accent) {
+  const t = THEMES_V2[theme] || THEMES_V2.white;
+  const root = document.documentElement;
+  root.style.setProperty("--bg", t.bg);
+  root.style.setProperty("--bg-alt", t.bgAlt);
+  root.style.setProperty("--bg-soft", t.bgSoft);
+  root.style.setProperty("--paper", t.paper);
+  root.style.setProperty("--ink", t.ink);
+  root.style.setProperty("--ink-soft", t.inkSoft);
+  root.style.setProperty("--ink-mute", t.inkMute);
+
+  // derive an --accent-soft from accent
+  const hex = accent.replace("#", "");
+  const r = parseInt(hex.slice(0, 2), 16);
+  const g = parseInt(hex.slice(2, 4), 16);
+  const b = parseInt(hex.slice(4, 6), 16);
+  // mix with bg at ~12%
+  root.style.setProperty("--accent-soft", `rgba(${r},${g},${b},0.10)`);
+  root.style.setProperty("--accent-deep", accent);
+}
+
+function App() {
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const lang = tweaks.lang;
+  const accent = tweaks.accent;
+  const t = window.COPY[lang];
+
+  React.useEffect(() => {
+    document.documentElement.style.setProperty("--accent", accent);
+    applyThemeV2(tweaks.theme, accent);
+  }, [accent, tweaks.theme]);
+
+  React.useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
+  const setLang = (l) => setTweak("lang", l);
+
+  return (
+    <>
+      <Header lang={lang} setLang={setLang} t={t} accent={accent} />
+      <main>
+        <Hero t={t} accent={accent} lang={lang} />
+        <Marquee items={t.marquee} accent={accent} />
+        <About t={t} accent={accent} lang={lang} />
+        <Services t={t} accent={accent} lang={lang} />
+        <Visit t={t} accent={accent} lang={lang} />
+        <Resources t={t} accent={accent} lang={lang} />
+      </main>
+      <Footer t={t} accent={accent} lang={lang} />
+
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Language" />
+        <TweakRadio
+          label="Display"
+          value={lang}
+          options={[{ value: "ko", label: "한국어" }, { value: "en", label: "English" }]}
+          onChange={(v) => setTweak("lang", v)}
+        />
+
+        <TweakSection label="Theme" />
+        <TweakSelect
+          label="Background"
+          value={tweaks.theme}
+          options={[
+            { value: "white", label: "Clean white (default)" },
+            { value: "cool",  label: "Cool blue-gray" },
+            { value: "warm",  label: "Warm neutral" },
+            { value: "dark",  label: "Dark mode" },
+          ]}
+          onChange={(v) => setTweak("theme", v)}
+        />
+        <TweakSelect
+          label="Accent"
+          value={accent}
+          options={ACCENT_PRESETS_V2}
+          onChange={(v) => setTweak("accent", v)}
+        />
+        <TweakColor label="Custom" value={accent} onChange={(v) => setTweak("accent", v)} />
+      </TweaksPanel>
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+
+</script>
+</body>
+</html>
